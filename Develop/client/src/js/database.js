@@ -15,19 +15,21 @@ const initdb = async () =>
 // // TODO: Add logic to a method that accepts some content and adds it to the database
 export const putDb = async (content) => {
   console.error('putDb not implemented')
-console.log('PUT to the database');
-const contactDb = await openDB('contact', 1);
-const tx = contactDb.transaction('contact', 'readwrite');
-const store = tx.objectStore('contact');
-const request = store.put(content);
-const result = await request;
-console.log('result.value', result);
-return result?.value;
+  console.log('PUT to the database');
+  const contactDb = await openDB('contact', 1);
+  const tx = contactDb.transaction('contact', 'readwrite');
+  const store = tx.objectStore('contact');
+  const request = store.put(content);
+  const result = await request;
+  console.log('result.value', result);
+  return result?.value;
 };
 
 
 
-export const getDb = async () => {console.error('getDb not implemented');
+
+export const getDb = async (contact) => {
+  console.error('getDb not implemented');
 
   console.log('GET from the database');
 
@@ -46,7 +48,8 @@ export const getDb = async () => {console.error('getDb not implemented');
   // Get confirmation of the request.
   const result = await request;
   console.log('result.value', result);
-  return result};
+  return result
+};
 
 
 
