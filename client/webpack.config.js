@@ -37,17 +37,21 @@ module.exports = () => {
       new HtmlWebpackPlugin({
         template: './index.html',
         title: 'JATE',
-        filename: 'index.html',
-        chunks: ['main'],
+        // filename: 'index.html',
+        // chunks: ['main'],
         // missing some properties -- 
       }),
 
       new WebpackPwaManifest({
+        fingerprints: false,
+        inject: true,
         name: 'My Progressive Web App',
         short_name: 'MyPWA',
         description: 'My awesome Progressive Web App!',
         background_color: '#ffffff',
-        crossorigin: 'use-credentials', //can be null, use-credentials or anonymous
+        start_url: '/',
+        publicPath: '/',
+        // crossorigin: 'use-credentials', //can be null, use-credentials or anonymous
         icons: [
           {
             src: path.resolve('src/images/logo.png'),
@@ -82,7 +86,7 @@ module.exports = () => {
                 ]
             }
           }
-        }
+        },
       ],
     },
   };
